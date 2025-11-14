@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  db:
+    image: mongo:7
+    container_name: autoria-db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: ./backend
+    container_name: autoria-backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://db:27017/autoria
+      - JWT_SECRET=supersecretkey123
+    ports:
+      - "3000:3000"
+
+volumes:
+  mongo_data:

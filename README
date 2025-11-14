@@ -1,0 +1,85 @@
+# Autoria Backend (AutoRia clone – API)
+
+Node.js + TypeScript backend for a simplified AutoRia-like platform.
+
+The project exposes a REST API for:
+
+- user registration & login (JWT auth)
+- roles & account types (BASIC / PREMIUM)
+- creating and managing car advertisements
+- profanity checking and review flow
+- statistics for PREMIUM sellers
+- managing car brands and brand requests
+
+> **Important:** this is an API-only project (no frontend).
+> All flows are tested via Postman collection.
+
+---
+
+## Tech stack
+
+- **Node.js** + **TypeScript**
+- **Express**
+- **MongoDB** (via Mongoose)
+- **JWT** for authentication
+- **Docker** – used to run MongoDB in a container
+- Simple in-memory service for currency rates (mocked)
+
+---
+
+## Project structure (short)
+
+- `src/main.ts` – app entry point
+- `src/configs/config.ts` – DB connection
+- `src/middlewares/auth.middleware.ts` – JWT auth guard
+- `src/auth/*` – auth routes & controllers (`/auth/register`, `/auth/login`)
+- `src/modules/users/*` – user model, upgrade to PREMIUM
+- `src/modules/ads/*` – ads model, controller and routes
+- `src/modules/brands/*` – brand model, brand request model and routes
+- `src/services/currency.service.ts` – currency conversion (mocked PrivatBank rates)
+
+---
+Test users (mock data for checking flows)
+
+For easier checking, you can create the following users via Postman:
+
+BASIC seller
+
+email: seller1@example.com
+
+password: Password123!
+
+role: SELLER
+
+accountType: BASIC
+
+PREMIUM seller
+
+email: seller@example.com
+
+password: Password123!
+
+role: SELLER
+
+accountType: PREMIUM
+
+---
+
+Running the app (without Docker)
+# development
+npm run dev
+
+# production build
+npm run build
+npm run start
+
+---
+
+## Environment variables
+
+Create a `.env` file in the project root (you can use `.env.example` as a template):
+
+```env
+PORT=3000
+MONGO_URI=mongodb://127.0.0.1:27017/autoria
+JWT_SECRET=your-jwt-secret-here
