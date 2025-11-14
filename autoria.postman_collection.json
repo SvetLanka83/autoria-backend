@@ -1,0 +1,419 @@
+{
+	"info": {
+		"_postman_id": "5151234e-1727-4377-b53b-d321cee87418",
+		"name": "autoria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46816882"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"seller@example.com\",\r\n  \"password\": \"Password123!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"seller@example.com\",\r\n  \"password\": \"Password123!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "activ-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE2M2MzMmExOWVhZmYzMTgzNGFlMGIiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTI3MjA3LCJleHAiOjE3NjMxMzA4MDd9.cFr9mqkpo5-Kv25FnjuXa0pS82FHGF5duNdYcYNhCgw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upgrade-premium",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE2M2MzMmExOWVhZmYzMTgzNGFlMGIiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTI4MzQ5LCJleHAiOjE3NjMxMzE5NDl9.juZDljB41yYhEQrXXGqhERYkNpa1m9aow-6Qix9RXA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/upgrade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"upgrade"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ads(public)",
+			"item": [
+				{
+					"name": "activ-ads",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE2M2MzMmExOWVhZmYzMTgzNGFlMGIiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTExMDc3LCJleHAiOjE3NjMxMTQ2Nzd9.qxdbEIryXamuChDV2y2Uhs7TyCv5_Cu1m1cWhZ5-VgM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"make\": \"BMW\",\r\n  \"model\": \"X5\",\r\n  \"description\": \"Nice family car, no accidents.\",\r\n  \"region\": \"Kyiv\",\r\n  \"price\": 15000,\r\n  \"currency\": \"USD\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ads"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ads (seller)",
+			"item": [
+				{
+					"name": "create-ads",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE2M2MzMmExOWVhZmYzMTgzNGFlMGIiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTI4MzQ5LCJleHAiOjE3NjMxMzE5NDl9.juZDljB41yYhEQrXXGqhERYkNpa1m9aow-6Qix9RXA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"make\": \"BMW\",\r\n  \"model\": \"X5\",\r\n  \"description\": \"Nice family car, no accidents.\",\r\n  \"region\": \"Kyiv\",\r\n  \"price\": 15000,\r\n  \"currency\": \"USD\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ads",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-ads",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE2M2MzMmExOWVhZmYzMTgzNGFlMGIiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTI4MzQ5LCJleHAiOjE3NjMxMzE5NDl9.juZDljB41yYhEQrXXGqhERYkNpa1m9aow-6Qix9RXA4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/ads/my",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ads",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE2M2MzMmExOWVhZmYzMTgzNGFlMGIiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTI5NjQ5LCJleHAiOjE3NjMxMzMyNDl9.E1JWwWjsnzlALkIO0LLN5d-uwru99fPLWEfKWCrD-I4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"Very badword car\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ads/691648cff89cd3d8c8092f69",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ads",
+								"691648cff89cd3d8c8092f69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE3N2I5YWQxY2RlYjU4NTg5MWQ0YjMiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTQ4OTU1LCJleHAiOjE3NjMxNTI1NTV9.cUD6ictt5If0xT61N8sL9K286GtsQlRPAw3P7kUX73c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ads/69177c5dd1cdeb585891d4b9/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ads",
+								"69177c5dd1cdeb585891d4b9",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brands",
+			"item": [
+				{
+					"name": "all-brands",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/brands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTE2M2MzMmExOWVhZmYzMTgzNGFlMGIiLCJyb2xlIjoiU0VMTEVSIiwiYWNjb3VudFR5cGUiOiJQUkVNSVVNIiwiaWF0IjoxNzYzMTI2NjQ4LCJleHAiOjE3NjMxMzAyNDh9.vMg_1sdgFSF7bnZomu8KRDFWMBP699ecplVV9hYpvSc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Rimac\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/brands/request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"brands",
+								"request"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
